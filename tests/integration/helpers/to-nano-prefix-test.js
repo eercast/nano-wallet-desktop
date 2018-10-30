@@ -16,7 +16,7 @@ describe('Integration | Helper | to-nano-prefix', () => {
     //     template content
     //   {{/mnemonic}}
     // `);
-    this.set('xrbaddress', 'xrb_3t6k35gi95xu6tergt6p69ck76ogmitsa8mnijtpxm9fkcm736xtoncuohr3');
+    this.set('xrbaddress', 'cec_3t6k35gi95xu6tergt6p69ck76ogmitsa8mnijtpxm9fkcm736xtoncuohr3');
 
     await render(hbs`{{to-nano-prefix xrbaddress}}`);
 

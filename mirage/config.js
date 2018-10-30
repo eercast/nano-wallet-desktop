@@ -30,7 +30,7 @@ export default function () {
   this.passthrough('http://localhost:7076');
 
   // Test network
-  this.passthrough('http://localhost:55000');
+  this.passthrough('http://localhost:7076');
 
   // Electron proxy
   this.passthrough('https://localhost:17076/**');

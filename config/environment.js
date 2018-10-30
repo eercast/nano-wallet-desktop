@@ -33,7 +33,7 @@ module.exports = (environment) => {
       'default-src': ["'none'"],
       'script-src': ["'self'", "'unsafe-eval'"],
       'font-src': ["'self'"],
-      'connect-src': ["'self'", 'https://api.coinmarketcap.com'],
+      'connect-src': ["'self'", 'https://api.coinmarketcap.com', 'http://localhost:7076/'],
       'img-src': ["'self'", 'data:'],
       'style-src': ["'self'", "'unsafe-inline'"],
       'media-src': ["'self'"],
@@ -47,15 +47,8 @@ module.exports = (environment) => {
     },
 
     links: {
-      eula: 'https://nanowalletcompany.com/desktop-eula',
-      privacyPolicy: 'https://nanowalletcompany.com/desktop-privacy-policy',
-    },
-
-    assets: {
-      data: {
-        url: 'https://dkl5m4kebds7n.cloudfront.net/data.tar.xz',
-        signature: 'https://dkl5m4kebds7n.cloudfront.net/data.tar.xz.sha256',
-      },
+      eula: 'https://cellcoin.cc/terms',
+      privacyPolicy: 'https://cellcoin.cc/privacy',
     },
   };
 
@@ -65,7 +58,7 @@ module.exports = (environment) => {
     ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.contentSecurityPolicy['connect-src'].push('http://localhost:55000');
+    ENV.contentSecurityPolicy['connect-src'].push('http://localhost:7076');
   }
 
   if (environment === 'test') {
@@ -85,6 +78,7 @@ module.exports = (environment) => {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.contentSecurityPolicy['connect-src'].push('https://localhost:17076');
   }
 
   if (process.env.EMBER_CLI_ELECTRON) {

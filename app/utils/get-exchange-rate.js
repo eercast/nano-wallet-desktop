@@ -1,6 +1,6 @@
 import { defineError } from 'ember-exex/error';
 
-import coinmarketcap from 'npm:coinmarketcap';
+// import coinmarketcap from 'npm:coinmarketcap';
 import BigNumber from 'npm:bignumber.js';
 
 export const NANO = Symbol.for('NANO');
@@ -44,16 +44,17 @@ export default async function getExchangeRate(currency = DEFAULT_CURRENCY) {
     throw new InvalidCurrencyError({ params: { currency } });
   }
 
-  const asset = Symbol.keyFor(DEFAULT_CURRENCY);
-  const convert = Symbol.keyFor(currency).toLowerCase();
-  let ticker;
-  try {
-    ticker = await coinmarketcap.tickerByAsset(asset, { convert });
-  } catch (err) {
-    throw new RequestExchangeRateError().withPreviousError(err);
-  }
+  // const asset = Symbol.keyFor(DEFAULT_CURRENCY);
+  // const convert = Symbol.keyFor(currency).toLowerCase();
+  // let ticker;
+  // try {
+  //   ticker = await coinmarketcap.tickerByAsset(asset, { convert });
+  // } catch (err) {
+  //   throw new RequestExchangeRateError().withPreviousError(err);
+  // }
+  // ticker[`price_${convert}`];
 
-  const value = ticker[`price_${convert}`];
+  const value = 0.04;
   let exchangeRate;
   try {
     exchangeRate = BigNumber(value);
